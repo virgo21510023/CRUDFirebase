@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "600709424811",
+    "project_id": "crud-firebase-cb83d",
+    "storage_bucket": "crud-firebase-cb83d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600709424811:android:39eafeeaac2a778a01b9ee",
+        "android_client_info": {
+          "package_name": "com.example.crudfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600709424811-h55ur0699t1ue1e8b9nrvh5oo69bt88k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.crudfirebase",
+            "certificate_hash": "321af8ff9e518ded4972037ede10c0f8e1bbdaa8"
+          }
+        },
+        {
+          "client_id": "600709424811-mbqo3j8m3sf4k8a5ndt7mccla2c2otec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE32FCc4eqqni6jDsdQLH9OZSGEM3Vapo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600709424811-mbqo3j8m3sf4k8a5ndt7mccla2c2otec.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600709424811:android:b31cc29291b6d16501b9ee",
+        "android_client_info": {
+          "package_name": "com.example.crudfirebase2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600709424811-mbqo3j8m3sf4k8a5ndt7mccla2c2otec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE32FCc4eqqni6jDsdQLH9OZSGEM3Vapo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600709424811-mbqo3j8m3sf4k8a5ndt7mccla2c2otec.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
