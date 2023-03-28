@@ -1,57 +1,66 @@
 package com.example.crudfirebase2;
 
-//class RecyclerViewAdapter {
-//}
-//Class Adapter ini Digunakan Untuk Mengatur Bagaimana Data akan Ditampilkan
-class RecyclerViewAdapter(private val listMahasiswa:ArrayList<data_mahasiswa>,
-                          context:Context) :RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
-private val context:Context
-//ViewHolder Digunakan Untuk Menyimpan Referensi Dari View-View
-        inner
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-class ViewHolder(itemView:View) :RecyclerView.ViewHolder(itemView){
-        val NIM:TextView
-        val Nama:TextView
-        val Jurusan:TextView
-        val ListItem:LinearLayout
-        init{//Menginisialisasi View yang terpasang pada layout RecyclerView kita
-        NIM=itemView.findViewById(R.id.nimx)
-        Nama=itemView.findViewById(R.id.namax)
-        Jurusan=itemView.findViewById(R.id.jurusanx)
-        ListItem=itemView.findViewById(R.id.list_item)
-        }
-        }
-        override fun onCreateViewHolder(parent:ViewGroup,viewType:Int):ViewHolder
-        {
-//Membuat View untuk Menyiapkan & Memasang Layout yang digunakan pada RecyclerView
-        val V:View=LayoutInflater.from(parent.getContext()).inflate(
-        R.layout.view_design,parent,false)
-        return ViewHolder(V)
-        }
-@SuppressLint("SetTextI18n")
-override fun onBindViewHolder(holder:ViewHolder,position:Int){
-//Mengambil Nilai/Value pada RecyclerView berdasarkan Posisi Tertentu
-        val NIM:String?=listMahasiswa.get(position).nim
-        val Nama:String?=listMahasiswa.get(position).nama
-        val Jurusan:String?=listMahasiswa.get(position).jurusan
-//Memasukan Nilai/Value kedalam View (TextView: NIM, Nama, Jurusan)
-        holder.NIM.text="NIM: $NIM"
-        holder.Nama.text="Nama: $Nama"
-        holder.Jurusan.text="Jurusan: $Jurusan"
-        holder.ListItem.setOnLongClickListener(object:View.OnLongClickListener{
-        override fun onLongClick(v:View?):Boolean{
-//Kodingan untuk fungsi Edit dan Delete, yang dibahas pada Tutorial Berikutnya.
-        return true
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+
+
+    private ArrayList<data_mahasiswa> listMahasiswa;
+    private Context context;
+    datalistener listener;
+
+    public RecyclerViewAdapter(ArrayList<data_mahasiswa> listMahasiswa, Context context) {
+        this.listMahasiswa = listMahasiswa;
+        this.context = context;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View V = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_design, parent, false);
+        return new ViewHolder(V);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        final String NIM = listMahasiswa.get(position).getNim();
+        final String Nama = listMahasiswa.get(position).getNama();
+        final String Jurusan = listMahasiswa.get(position).getJurusan();
+
+        holder.NIM.setText("NIM : " + NIM);
+        holder.Nama.setText("Nama : " + Nama);
+        holder.Jurusan.setText("Jurusan : " + Jurusan);
+    }
+
+    @Override
+    public int getItemCount() {
+        return listMahasiswa.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView NIM, Nama, Jurusan;
+        private LinearLayout ListItem;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            NIM = itemView.findViewById(R.id.nimx);
+            Nama = itemView.findViewById(R.id.namax);
+            Jurusan = itemView.findViewById(R.id.jurusanx);
+            ListItem = itemView.findViewById(R.id.list_item);
         }
-        })
-        }
-        override fun getItemCount():Int{
-//Menghitung Ukuran/Jumlah Data Yang Akan Ditampilkan Pada RecyclerView
-        return listMahasiswa.size
-        }
-//Membuat Konstruktor, untuk menerima input dari Database
-        init{
-        this.context=context
-        }
-        }
+    }
+
+    public interface datalistener {
+
+    }
+}
