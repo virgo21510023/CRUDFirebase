@@ -1,6 +1,8 @@
 package com.example.crudfirebase2;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,8 +33,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return new ViewHolder(V);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public boolean onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final String NIM = listMahasiswa.get(position).getNim();
         final String Nama = listMahasiswa.get(position).getNama();
         final String Jurusan = listMahasiswa.get(position).getJurusan();
@@ -40,27 +41,66 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.NIM.setText("NIM : " + NIM);
         holder.Nama.setText("Nama : " + Nama);
         holder.Jurusan.setText("Jurusan : " + Jurusan);
-    }
 
-    @Override
-    public int getItemCount() {
-        return listMahasiswa.size();
-    }
+        holder.ListItem.setOnLongClickListener(object:View.OnLongClickListener {
+            override fun onLongClick(v:View ?):Boolean {
+                holder.ListItem.setOnLongClickListener {
+                    view ->
+                            val action = arrayOf("Update", "Delete")
+                    val alert:AlertDialog.Builder = AlertDialog.Builder(view.context)
+                    alert.setItems(action, DialogInterface.OnClickListener {
+                        dialog, i ->
+                                when(i);
+                        {
+                            0 ->{
+                            val bundle = Bundle();
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView NIM, Nama, Jurusan;
-        private LinearLayout ListItem;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            NIM = itemView.findViewById(R.id.nimx);
-            Nama = itemView.findViewById(R.id.namax);
-            Jurusan = itemView.findViewById(R.id.jurusanx);
-            ListItem = itemView.findViewById(R.id.list_item);
+                            bundle.putString("dataNIM", listMahasiswa.get(position).nim)
+                            bundle.putString("dataNama", listMahasiswa.get(position).nama)
+                            bundle.putString("dataJurusan", listMahasiswa.get(position).jurusan)
+                            bundle.putString("getPrimaryKey", listMahasiswa.get(position).key)
+                            val intent = Intent(view.context, UpdateData:: class.java)
+                            intent.putExtras(bundle)
+                            context.startActivity(intent)
+                        }
+                            1 ->{
+                        }
+                        }
+                    })
+                    alert.create()
+                    alert.show()
+                    true
+                }
+                return true;
+            }
         }
     }
 
-    public interface datalistener {
-
+    private val Bundle() {
     }
 }
+;
+                    }
+
+@Override
+public int getItemCount(){
+        return listMahasiswa.size();
+        }
+
+public class ViewHolder extends RecyclerView.ViewHolder {
+    public View ListItem;
+    private TextView NIM, Nama, Jurusan;
+
+    public ViewHolder(@NonNull View itemView) {
+        super(itemView);
+        NIM = itemView.findViewById(R.id.nimx);
+        Nama = itemView.findViewById(R.id.namax);
+        Jurusan = itemView.findViewById(R.id.jurusanx);
+        ListItem = itemView.findViewById(R.id.list_item);
+    }
+}
+
+public interface datalistener {
+
+}
+                }
