@@ -11,9 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
         <activity
-            android:name=".UpdateData"
-            android:exported="false" />
-        <activity
             android:name=".MyListData"
             android:exported="false" />
         <activity android:name=".MainActivity" />
