@@ -17,7 +17,7 @@ class RecyclerViewAdapter(
     private var context: Context
 ) :
     RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
-    var listener: datalistener? = null
+    //    var listener: datalistener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val V = LayoutInflater.from(parent.context).inflate(R.layout.view_design, parent, false)
         return ViewHolder(V)
@@ -27,9 +27,13 @@ class RecyclerViewAdapter(
         val NIM = listMahasiswa[position].nim
         val Nama = listMahasiswa[position].nama
         val Jurusan = listMahasiswa[position].jurusan
+        val JenisKelamin = listMahasiswa[position].jenisKelamin
+        val Alamat = listMahasiswa[position].alamat
         holder.NIM.text = "NIM : $NIM"
         holder.Nama.text = "Nama : $Nama"
         holder.Jurusan.text = "Jurusan : $Jurusan"
+        holder.JenisKelamin.text = "Jenis Kelamin : $JenisKelamin"
+        holder.Alamat.text = "Alamat : $Alamat"
 
         holder.ListItem.setOnLongClickListener(object : View.OnLongClickListener {
             override fun onLongClick(v: View?): Boolean {
@@ -46,6 +50,11 @@ class RecyclerViewAdapter(
                                 bundle.putString("dataNIM", listMahasiswa[position].nim)
                                 bundle.putString("dataNama", listMahasiswa[position].nama)
                                 bundle.putString("dataJurusan", listMahasiswa[position].jurusan)
+                                bundle.putString(
+                                    "dataJenisKelamin",
+                                    listMahasiswa[position].jenisKelamin
+                                )
+                                bundle.putString("dataAlamat", listMahasiswa[position].alamat)
                                 bundle.putString("getPrimaryKey", listMahasiswa[position].key)
                                 val intent = Intent(view.context, UpdateData::class.java)
                                 intent.putExtras(bundle)
@@ -73,12 +82,16 @@ class RecyclerViewAdapter(
         val NIM: TextView
         val Nama: TextView
         val Jurusan: TextView
+        val JenisKelamin: TextView
+        val Alamat: TextView
         val ListItem: LinearLayout
 
         init {
             NIM = itemView.findViewById(R.id.nimx)
             Nama = itemView.findViewById(R.id.namax)
             Jurusan = itemView.findViewById(R.id.jurusanx)
+            JenisKelamin = itemView.findViewById(R.id.jenisKelaminx)
+            Alamat = itemView.findViewById(R.id.alamatx)
             ListItem = itemView.findViewById(R.id.list_item)
         }
     }

@@ -17,6 +17,8 @@ class UpdateData : AppCompatActivity() {
     private var cekNIM: String? = null
     private var cekNama: String? = null
     private var cekJurusan: String? = null
+    private var cekJenisKelamin: String? = null
+    private var cekAlamat: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_data)
@@ -31,10 +33,12 @@ class UpdateData : AppCompatActivity() {
                 cekNIM = new_nim.getText().toString()
                 cekNama = new_nama.getText().toString()
                 cekJurusan = new_jurusan.getText().toString()
+                cekJenisKelamin = new_jenisKelamin.getText().toString()
+                cekAlamat = new_alamat.getText().toString()
 
 //Mengecek agar tidak ada data yang kosong, saat proses update
                 if (isEmpty(cekNIM!!) || isEmpty(cekNama!!) ||
-                    isEmpty(cekJurusan!!)
+                    isEmpty(cekJurusan!!) || isEmpty(cekJenisKelamin!!) || isEmpty(cekAlamat!!)
                 ) {
                     Toast.makeText(
                         this@UpdateData,
@@ -51,6 +55,8 @@ Method Setter digunakan untuk mendapakan data baru yang diinputkan User.*/
                     setMahasiswa.nim = new_nim.getText().toString()
                     setMahasiswa.nama = new_nama.getText().toString()
                     setMahasiswa.jurusan = new_jurusan.getText().toString()
+                    setMahasiswa.jenisKelamin = new_jenisKelamin.getText().toString()
+                    setMahasiswa.alamat = new_alamat.getText().toString()
                     updateMahasiswa(setMahasiswa)
                 }
             }
@@ -69,9 +75,13 @@ Method Setter digunakan untuk mendapakan data baru yang diinputkan User.*/
             val getNIM = intent.extras!!.getString("dataNIM")
             val getNama = intent.extras!!.getString("dataNama")
             val getJurusan = intent.extras!!.getString("dataJurusan")
+            val getJenisKelamin = intent.extras!!.getString("dataJenisKelamin")
+            val getAlamat = intent.extras!!.getString("dataAlamat")
             new_nim!!.setText(getNIM)
             new_nama!!.setText(getNama)
             new_jurusan!!.setText(getJurusan)
+            new_jenisKelamin!!.setText(getJenisKelamin)
+            new_alamat!!.setText(getAlamat)
         }
 
     //Proses Update data yang sudah ditentukan
@@ -87,6 +97,8 @@ Method Setter digunakan untuk mendapakan data baru yang diinputkan User.*/
                 new_nim!!.setText("")
                 new_nama!!.setText("")
                 new_jurusan!!.setText("")
+                new_jenisKelamin!!.setText("")
+                new_alamat!!.setText("")
                 Toast.makeText(
                     this@UpdateData, "Data Berhasil diubah",
                     Toast.LENGTH_SHORT

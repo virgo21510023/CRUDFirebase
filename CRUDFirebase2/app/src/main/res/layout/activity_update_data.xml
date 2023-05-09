@@ -37,6 +37,26 @@
         android:inputType="textPersonName"
         android:minHeight="48dp" />
 
+    <EditText
+        android:id="@+id/new_jenisKelamin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="Jenis Kelamin Baru"
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/new_alamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="Alamat Baru"
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
+
     <Button
         android:id="@+id/update"
         android:layout_width="match_parent"
