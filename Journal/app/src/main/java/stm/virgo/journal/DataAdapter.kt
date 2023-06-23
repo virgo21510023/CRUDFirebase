@@ -30,6 +30,7 @@ class DataAdapter(val data: List<DataItem>?, private val click: onClickItem) :
             itemView.tvTitle.text = get?.title
             itemView.tvContent.text = get?.content
             itemView.tvUpdated_at.text = get?.updated_at
+            itemView.tvCreated_at.text = get?.created_at
         }
     }
 

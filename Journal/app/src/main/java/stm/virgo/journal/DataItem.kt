@@ -16,4 +16,7 @@ class DataItem : Serializable {
     @field:SerializedName("updated_at")
     val updated_at: String? = null
 
+    @field:SerializedName("created_at")
+    val created_at: String? = null
+
 }

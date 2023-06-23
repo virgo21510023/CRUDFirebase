@@ -2,8 +2,10 @@ package stm.virgo.journal
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_update_add.*
 
 @Suppress("SENSELESS_COMPARISON")
@@ -18,10 +20,19 @@ class UpdateAddActivity : AppCompatActivity(), CrudView {
         // Note that the Toolbar defined in the layout has the id "my_toolbar"
         setSupportActionBar(findViewById(R.id.my_toolbar))
 
+        findViewById<Button>(R.id.btnBatal)
+            .setOnClickListener {
+                Log.d("BUTTONS", "User tapped the Supabutton")
+                // create an intent to switch to second activity upon clicking
+                // create an intent to switch to second activity upon clicking
+                startActivity(Intent(applicationContext, MainActivity::class.java))
+                finish()
+            }
+
         presenter = Presenter2(this)
         val itemDataItem = intent.getSerializableExtra("dataItem")
         if (itemDataItem == null) {
-            btnAction.text = "Tambah"
+            btnAction.text = "TAMBAH"
             btnAction.setOnClickListener() {
                 presenter.addData(
                     etTitle.text.toString(),
@@ -29,7 +40,7 @@ class UpdateAddActivity : AppCompatActivity(), CrudView {
                 )
             }
         } else if (itemDataItem != null) {
-            btnAction.text = "Update"
+            btnAction.text = "PERBARUI"
             val item = itemDataItem as DataItem?
             etTitle.setText(item?.title.toString())
             etContent.setText(item?.content.toString())
