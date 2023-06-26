@@ -16,6 +16,20 @@
         android:hint="Name" />
 
     <EditText
+        android:id="@+id/etJenisKelamin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="Jenis Kelamin" />
+
+    <EditText
+        android:id="@+id/etProgramStudi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="Program Studi" />
+
+    <EditText
         android:id="@+id/etPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

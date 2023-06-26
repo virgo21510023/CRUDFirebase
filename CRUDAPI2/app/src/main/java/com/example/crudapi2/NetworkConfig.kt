@@ -38,6 +38,8 @@ interface StaffService {
     @POST("addStaff")
     fun addStaff(
         @Field("name") name: String,
+        @Field("jenisKelamin") jenisKelamin: String,
+        @Field("programStudi") programStudi: String,
         @Field("hp") hp: String,
         @Field("alamat") alamat: String
     ): Call<ResultStatus>
@@ -57,6 +59,8 @@ interface StaffService {
     @POST("updateStaff")
     fun updateStaff(
         @Field("id") id: String,
+        @Field("jenisKelamin") jenisKelamin: String,
+        @Field("programStudi") programStudi: String,
         @Field("name") name: String,
         @Field("hp") hp: String,
         @Field("alamat") alamat: String

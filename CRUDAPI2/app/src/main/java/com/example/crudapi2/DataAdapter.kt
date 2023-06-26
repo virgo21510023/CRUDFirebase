@@ -27,6 +27,9 @@ class DataAdapter(val data: List<DataItem>?, private val click: onClickItem) :
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(get: DataItem?) {
             itemView.tvName.text = get?.staffName
+            itemView.tvJenisKelamin.text = get?.staffJenisKelamin
+            itemView.tvProgramStudi.text = get?.staffProgramStudi
+            itemView.tvName.text = get?.staffName
             itemView.tvPhone.text = get?.staffHp
             itemView.tvAddress.text = get?.staffAlamat
         }
